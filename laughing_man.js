@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#square').addEventListener('click', () => {
         alert("You caught the Laughing Man!");
     });
+
+    document.querySelector('#square').addEventListener('mouseover', () => {
+        document.querySelector('#square').style.backgroundColor = getColor();
+    });
+
+    document.querySelector('#square').addEventListener('mouseout', () => {
+        document.querySelector('#square').style.backgroundColor = "red";
+    });
 });
 
 let box = document.querySelector('#box');
