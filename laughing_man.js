@@ -2,6 +2,15 @@ const SQUARE_COUNT = 3;
 const SPEED = 2;
 const TIMER_SPEED = 10;
 
+function getColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters.charAt(parseInt(Math.random() * letters.length));
+    }
+    return color;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#square').addEventListener('click', () => {
         alert("You caught the Laughing Man!");
@@ -27,6 +36,18 @@ Array.from(box.children).forEach((element) => {
     setInterval(() => {
         x += dx;
         y += dy;
+
+        if (x <= 0 || x >= 450) {
+            dx = -dx;
+            element.style.borderColor = getColor();
+            element.style.backgroundColor = getColor();
+        }
+        if (y <= 0 || y >= 350) {
+            dy = -dy;
+            element.style.borderColor = getColor();
+            element.style.backgroundColor = getColor();
+        }
+
         element.style.left = x + 'px';
         element.style.top = y + 'px';
     }, TIMER_SPEED);
