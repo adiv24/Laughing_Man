@@ -25,6 +25,14 @@ for (let i = 0; i < SQUARE_COUNT; i++) {
     square.alt = "Catch the Laughing Man!";
     square.className = 'square';
     box.appendChild(square);
+
+    square.addEventListener('mouseover', () => {
+        square.src = 'orochimaru_50x50.jpg';
+    });
+
+    square.addEventListener('mouseout', () => {
+        square.src = 'laughing_man.jpg';
+    });
 }
 
 Array.from(box.children).forEach((element) => {
